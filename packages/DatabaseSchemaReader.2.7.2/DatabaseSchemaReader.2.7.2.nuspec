@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DatabaseSchemaReader</id>
+    <version>2.7.2</version>
+    <title>DatabaseSchemaReader</title>
+    <authors>Martin Willey</authors>
+    <owners>Martin Willey</owners>
+    <licenseUrl>http://www.microsoft.com/en-us/openness/licenses.aspx#MPL</licenseUrl>
+    <projectUrl>https://github.com/martinjw/dbschemareader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Any ADO provider can be read  (SqlServer, SqlServer CE 4, MySQL, SQLite, System.Data.OracleClient, ODP, Devart, PostgreSql, DB2...) into a single standard model.</description>
+    <summary />
+    <releaseNotes>2.7.0: Add CommandTimeout option
+2.7.1: Oracle 10 support</releaseNotes>
+    <tags>ADO Entity Framework Code First SQLServer SQLite Oracle MySQL PostgreSql Schema Database</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework="Unsupported0.0">
+        <dependency id="NETStandard.Library" version="1.6.0" />
+        <dependency id="System.Console" version="4.0.0" />
+        <dependency id="System.Data.Common" version="4.1.0" />
+        <dependency id="System.Diagnostics.TraceSource" version="4.0.0" />
+        <dependency id="System.Xml.XmlSerializer" version="4.0.11" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0, .NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

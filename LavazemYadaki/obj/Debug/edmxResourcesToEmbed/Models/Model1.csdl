@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LavazemYadakiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LavazemYadakiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Anbar" EntityType="LavazemYadakiModel.Anbar" />
+    <EntitySet Name="FactorAnbar" EntityType="LavazemYadakiModel.FactorAnbar" />
+    <EntitySet Name="FactorForoosh" EntityType="LavazemYadakiModel.FactorForoosh" />
+    <EntitySet Name="Kala" EntityType="LavazemYadakiModel.Kala" />
+    <EntitySet Name="Person" EntityType="LavazemYadakiModel.Person" />
+    <AssociationSet Name="FK_Kala_Anbar" Association="LavazemYadakiModel.FK_Kala_Anbar">
+      <End Role="Anbar" EntitySet="Anbar" />
+      <End Role="Kala" EntitySet="Kala" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorAnbar_Kala" Association="LavazemYadakiModel.FK_FactorAnbar_Kala">
+      <End Role="Kala" EntitySet="Kala" />
+      <End Role="FactorAnbar" EntitySet="FactorAnbar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorAnbar_Person" Association="LavazemYadakiModel.FK_FactorAnbar_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="FactorAnbar" EntitySet="FactorAnbar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorForoosh_Kala" Association="LavazemYadakiModel.FK_FactorForoosh_Kala">
+      <End Role="Kala" EntitySet="Kala" />
+      <End Role="FactorForoosh" EntitySet="FactorForoosh" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Anbar">
+    <Key>
+      <PropertyRef Name="AnbarId" />
+    </Key>
+    <Property Name="AnbarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleAnbar" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kala" Relationship="LavazemYadakiModel.FK_Kala_Anbar" FromRole="Anbar" ToRole="Kala" />
+  </EntityType>
+  <EntityType Name="FactorAnbar">
+    <Key>
+      <PropertyRef Name="FactorAnbarId" />
+    </Key>
+    <Property Name="FactorAnbarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KalaId" Type="Int32" Nullable="false" />
+    <Property Name="Bestankar" Type="Int32" />
+    <Property Name="Bedehkar" Type="Int32" />
+    <Property Name="Tarikh" Type="DateTime" Precision="3" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kala" Relationship="LavazemYadakiModel.FK_FactorAnbar_Kala" FromRole="FactorAnbar" ToRole="Kala" />
+    <NavigationProperty Name="Person" Relationship="LavazemYadakiModel.FK_FactorAnbar_Person" FromRole="FactorAnbar" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="FactorForoosh">
+    <Key>
+      <PropertyRef Name="FactorForooshId" />
+    </Key>
+    <Property Name="FactorForooshId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KalaId" Type="Int32" Nullable="false" />
+    <Property Name="CountKala" Type="Int32" Nullable="false" />
+    <Property Name="Fi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kala" Relationship="LavazemYadakiModel.FK_FactorForoosh_Kala" FromRole="FactorForoosh" ToRole="Kala" />
+  </EntityType>
+  <EntityType Name="Kala">
+    <Key>
+      <PropertyRef Name="KalaId" />
+    </Key>
+    <Property Name="KalaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleKala" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CodeKala" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderPoint" Type="Int32" />
+    <Property Name="AnbarId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Anbar" Relationship="LavazemYadakiModel.FK_Kala_Anbar" FromRole="Kala" ToRole="Anbar" />
+    <NavigationProperty Name="FactorAnbar" Relationship="LavazemYadakiModel.FK_FactorAnbar_Kala" FromRole="Kala" ToRole="FactorAnbar" />
+    <NavigationProperty Name="FactorForoosh" Relationship="LavazemYadakiModel.FK_FactorForoosh_Kala" FromRole="Kala" ToRole="FactorForoosh" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Family" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FactorAnbar" Relationship="LavazemYadakiModel.FK_FactorAnbar_Person" FromRole="Person" ToRole="FactorAnbar" />
+  </EntityType>
+  <Association Name="FK_Kala_Anbar">
+    <End Type="LavazemYadakiModel.Anbar" Role="Anbar" Multiplicity="1" />
+    <End Type="LavazemYadakiModel.Kala" Role="Kala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anbar">
+        <PropertyRef Name="AnbarId" />
+      </Principal>
+      <Dependent Role="Kala">
+        <PropertyRef Name="AnbarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorAnbar_Kala">
+    <End Type="LavazemYadakiModel.Kala" Role="Kala" Multiplicity="1" />
+    <End Type="LavazemYadakiModel.FactorAnbar" Role="FactorAnbar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kala">
+        <PropertyRef Name="KalaId" />
+      </Principal>
+      <Dependent Role="FactorAnbar">
+        <PropertyRef Name="KalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorAnbar_Person">
+    <End Type="LavazemYadakiModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="LavazemYadakiModel.FactorAnbar" Role="FactorAnbar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="FactorAnbar">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorForoosh_Kala">
+    <End Type="LavazemYadakiModel.Kala" Role="Kala" Multiplicity="1" />
+    <End Type="LavazemYadakiModel.FactorForoosh" Role="FactorForoosh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kala">
+        <PropertyRef Name="KalaId" />
+      </Principal>
+      <Dependent Role="FactorForoosh">
+        <PropertyRef Name="KalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

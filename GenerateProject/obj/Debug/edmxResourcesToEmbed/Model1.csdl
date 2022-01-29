@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hamidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="carId" />
+    </Key>
+    <Property Name="carId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="typeCarId" Type="Int32" />
+    <Property Name="colorId" Type="Int32" />
+    <Property Name="pelak" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="masoool" Type="Int32" />
+    <NavigationProperty Name="ComboBox" Relationship="Self.FK_Car_ComboBox2" FromRole="Car" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox1" Relationship="Self.FK_Car_ComboBox3" FromRole="Car" ToRole="ComboBox" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_Car_staff" FromRole="Car" ToRole="staff" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Car" FromRole="Car" ToRole="Customer" />
+    <NavigationProperty Name="staff_car" Relationship="Self.FK_staff_car_Car" FromRole="Car" ToRole="staff_car" />
+    <NavigationProperty Name="taradod" Relationship="Self.FK_taradod_Car" FromRole="Car" ToRole="taradod" />
+  </EntityType>
+  <EntityType Name="ComboBox">
+    <Key>
+      <PropertyRef Name="ComboboxId" />
+    </Key>
+    <Property Name="ComboboxId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="Int32" Nullable="false" />
+    <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TypeComboId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_ComboBox2" FromRole="ComboBox" ToRole="Car" />
+    <NavigationProperty Name="Car1" Relationship="Self.FK_Car_ComboBox3" FromRole="ComboBox" ToRole="Car" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_azSouey_Combo_R" FromRole="ComboBox" ToRole="Customer" />
+    <NavigationProperty Name="Customer1" Relationship="Self.FK_azSouey_Combo_RVisitWithRade_combo_R" FromRole="ComboBox" ToRole="Customer" />
+    <NavigationProperty Name="taradod" Relationship="Self.FK_ComboBox_codTaradod_combo" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="TypeCombo" Relationship="Self.FK_ComboBox_TypeCombo" FromRole="ComboBox" ToRole="TypeCombo" />
+    <NavigationProperty Name="taradod1" Relationship="Self.FK_ComboBox_vazeiat_taradod_combo" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="Customer2" Relationship="Self.FK_HamahangKonnande_Combo_R" FromRole="ComboBox" ToRole="Customer" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_staff_ComboBox" FromRole="ComboBox" ToRole="staff" />
+    <NavigationProperty Name="staff1" Relationship="Self.FK_staff_ComboBox1" FromRole="ComboBox" ToRole="staff" />
+    <NavigationProperty Name="staff2" Relationship="Self.FK_staff_ComboBox2" FromRole="ComboBox" ToRole="staff" />
+    <NavigationProperty Name="staff3" Relationship="Self.FK_staff_ComboBox3" FromRole="ComboBox" ToRole="staff" />
+    <NavigationProperty Name="taradod2" Relationship="Self.FK_taradod_ComboBox" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="taradod3" Relationship="Self.FK_taradod_ComboBox1" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="taradod4" Relationship="Self.FK_taradod_ComboBox2" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="taradod5" Relationship="Self.FK_taradod_ComboBox3" FromRole="ComboBox" ToRole="taradod" />
+    <NavigationProperty Name="Customer3" Relationship="Self.FK_VisitWithStaf_Combo_r" FromRole="ComboBox" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="azSouey_Combo" Type="Int32" />
+    <Property Name="VisitWithRade_combo" Type="Int32" />
+    <Property Name="VisitWithStaf_Combo" Type="Int32" />
+    <Property Name="HamahangKonnande_Combo" Type="Int32" />
+    <Property Name="EquipmentWithHim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Madrak_Shenasayee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hamrahan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="piyade" Type="Boolean" />
+    <Property Name="carId" Type="Int32" />
+    <Property Name="hokmTaradodCar" Type="Boolean" />
+    <Property Name="sh_hokmTaradodCar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hokmTaradodMaemoriat" Type="Boolean" />
+    <Property Name="sh_hokmTaradodMaemoriat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquipmentToGuard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date_insert" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Customer_Car" FromRole="Customer" ToRole="Car" />
+    <NavigationProperty Name="ComboBox" Relationship="Self.FK_azSouey_Combo_R" FromRole="Customer" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox1" Relationship="Self.FK_azSouey_Combo_RVisitWithRade_combo_R" FromRole="Customer" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox2" Relationship="Self.FK_HamahangKonnande_Combo_R" FromRole="Customer" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox3" Relationship="Self.FK_VisitWithStaf_Combo_r" FromRole="Customer" ToRole="ComboBox" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_Customer_Person" FromRole="Customer" ToRole="Person" />
+    <NavigationProperty Name="taradod" Relationship="Self.FK_taradod_Customer" FromRole="Customer" ToRole="taradod" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="family" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="family2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sh_sh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cod_meli" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dateBrithday" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Person" FromRole="Person" ToRole="Customer" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_staff_Person" FromRole="Person" ToRole="staff" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="show" Type="Boolean" />
+    <Property Name="ins" Type="Boolean" />
+    <Property Name="upd" Type="Boolean" />
+    <Property Name="del" Type="Boolean" />
+    <NavigationProperty Name="UserLogin" Relationship="Self.FK_User_role" FromRole="role" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="ShiftId" />
+    </Key>
+    <Property Name="ShiftId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codeShift" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="timeFrom" Type="Time" Precision="7" />
+    <Property Name="timeTo" Type="Time" Precision="7" />
+    <Property Name="percentCalcute" Type="Double" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_staff_shift" FromRole="shift" ToRole="staff" />
+    <NavigationProperty Name="taradod" Relationship="Self.FK_taradod_shift" FromRole="shift" ToRole="taradod" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="staffid" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="codTaradod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="codpasdari" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="use_mostaer" Type="Boolean" />
+    <Property Name="olaviat_combo" Type="Int32" />
+    <Property Name="teyf_combo" Type="Int32" />
+    <Property Name="radekhedmati_combo" Type="Int32" />
+    <Property Name="ozviat_combo" Type="Int32" />
+    <Property Name="piyade" Type="Boolean" />
+    <Property Name="ShiftId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_staff" FromRole="staff" ToRole="Car" />
+    <NavigationProperty Name="ComboBox" Relationship="Self.FK_staff_ComboBox" FromRole="staff" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox1" Relationship="Self.FK_staff_ComboBox1" FromRole="staff" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox2" Relationship="Self.FK_staff_ComboBox2" FromRole="staff" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox3" Relationship="Self.FK_staff_ComboBox3" FromRole="staff" ToRole="ComboBox" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_staff_Person" FromRole="staff" ToRole="Person" />
+    <NavigationProperty Name="shift" Relationship="Self.FK_staff_shift" FromRole="staff" ToRole="shift" />
+    <NavigationProperty Name="staff_car" Relationship="Self.FK_staff_car_staff" FromRole="staff" ToRole="staff_car" />
+    <NavigationProperty Name="taradod" Relationship="Self.FK_taradod_staff" FromRole="staff" ToRole="taradod" />
+  </EntityType>
+  <EntityType Name="staff_car">
+    <Key>
+      <PropertyRef Name="staff_car_id" />
+    </Key>
+    <Property Name="staff_car_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="carId" Type="Int32" Nullable="false" />
+    <Property Name="staffid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_staff_car_Car" FromRole="staff_car" ToRole="Car" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_staff_car_staff" FromRole="staff_car" ToRole="staff" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="taradod">
+    <Key>
+      <PropertyRef Name="taradodId" />
+    </Key>
+    <Property Name="taradodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="staffid" Type="Int32" />
+    <Property Name="carId" Type="Int32" />
+    <Property Name="codTaradod_combo" Type="Int32" />
+    <Property Name="vorod" Type="DateTime" Precision="3" />
+    <Property Name="khoroj" Type="DateTime" Precision="3" />
+    <Property Name="vazeiat_taradod_combo" Type="Int32" />
+    <Property Name="desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="car_notSabt" Type="Boolean" />
+    <Property Name="DateSave" Type="DateTime" Precision="3" />
+    <Property Name="ShiftId" Type="Int32" Nullable="false" />
+    <Property Name="EquipmentWithHim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Madrak_Shenasayee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquipmentToGuard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sh_hokmTaradodMaemoriat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sh_hokmTaradodCar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="azSouey_Combo" Type="Int32" />
+    <Property Name="VisitWithRade_combo" Type="Int32" />
+    <Property Name="VisitWithStaf_Combo" Type="Int32" />
+    <Property Name="HamahangKonnande_Combo" Type="Int32" />
+    <Property Name="hokmTaradodCar" Type="Boolean" />
+    <Property Name="hokmTaradodMaemoriat" Type="Boolean" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_taradod_Car" FromRole="taradod" ToRole="Car" />
+    <NavigationProperty Name="ComboBox" Relationship="Self.FK_ComboBox_codTaradod_combo" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox1" Relationship="Self.FK_ComboBox_vazeiat_taradod_combo" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox2" Relationship="Self.FK_taradod_ComboBox" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox3" Relationship="Self.FK_taradod_ComboBox1" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox4" Relationship="Self.FK_taradod_ComboBox2" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="ComboBox5" Relationship="Self.FK_taradod_ComboBox3" FromRole="taradod" ToRole="ComboBox" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_taradod_Customer" FromRole="taradod" ToRole="Customer" />
+    <NavigationProperty Name="shift" Relationship="Self.FK_taradod_shift" FromRole="taradod" ToRole="shift" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_taradod_staff" FromRole="taradod" ToRole="staff" />
+  </EntityType>
+  <EntityType Name="TypeCombo">
+    <Key>
+      <PropertyRef Name="TypeComboId" />
+    </Key>
+    <Property Name="TypeComboId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeCombo1" Type="Int32" />
+    <Property Name="TypeCombo_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ComboBox" Relationship="Self.FK_ComboBox_TypeCombo" FromRole="TypeCombo" ToRole="ComboBox" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Userid" />
+    </Key>
+    <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="roleId" Type="Int32" Nullable="false" />
+    <Property Name="activeDateFrom" Type="DateTime" Precision="3" />
+    <Property Name="activeDateTo" Type="DateTime" Precision="3" />
+    <Property Name="FlgActive" Type="Boolean" />
+    <NavigationProperty Name="role" Relationship="Self.FK_User_role" FromRole="UserLogin" ToRole="role" />
+    <NavigationProperty Name="HistoryLogin" Relationship="Self.FK_HistoryLogin_User" FromRole="UserLogin" ToRole="HistoryLogin" />
+  </EntityType>
+  <EntityType Name="HistoryLogin">
+    <Key>
+      <PropertyRef Name="Userid" />
+      <PropertyRef Name="TypeLogin" />
+    </Key>
+    <Property Name="HistoryLoginId" Type="Int32" />
+    <Property Name="dateTime" Type="DateTime" Precision="3" />
+    <Property Name="Userid" Type="Int32" Nullable="false" />
+    <Property Name="TypeLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserLogin" Relationship="Self.FK_HistoryLogin_User" FromRole="HistoryLogin" ToRole="UserLogin" />
+  </EntityType>
+  <Association Name="FK_Car_ComboBox2">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="typeCarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_ComboBox3">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="colorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="staffid" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="masoool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="carId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="carId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_car_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="staff_car" Type="Self.staff_car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="carId" />
+      </Principal>
+      <Dependent Role="staff_car">
+        <PropertyRef Name="carId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="carId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="carId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_azSouey_Combo_R">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="azSouey_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_azSouey_Combo_RVisitWithRade_combo_R">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="VisitWithRade_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComboBox_codTaradod_combo">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="codTaradod_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComboBox_TypeCombo">
+    <End Role="TypeCombo" Type="Self.TypeCombo" Multiplicity="1" />
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCombo">
+        <PropertyRef Name="TypeComboId" />
+      </Principal>
+      <Dependent Role="ComboBox">
+        <PropertyRef Name="TypeComboId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComboBox_vazeiat_taradod_combo">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="vazeiat_taradod_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HamahangKonnande_Combo_R">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="HamahangKonnande_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_ComboBox">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="olaviat_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_ComboBox1">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="teyf_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_ComboBox2">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="radekhedmati_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_ComboBox3">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="ozviat_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_ComboBox">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="azSouey_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_ComboBox1">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="VisitWithRade_combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_ComboBox2">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="VisitWithStaf_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_ComboBox3">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="HamahangKonnande_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitWithStaf_Combo_r">
+    <End Role="ComboBox" Type="Self.ComboBox" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComboBox">
+        <PropertyRef Name="ComboboxId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="VisitWithStaf_Combo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="roleId" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_shift">
+    <End Role="shift" Type="Self.shift" Multiplicity="1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shift">
+        <PropertyRef Name="ShiftId" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="ShiftId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_shift">
+    <End Role="shift" Type="Self.shift" Multiplicity="1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shift">
+        <PropertyRef Name="ShiftId" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="ShiftId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_staff_car_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="staff_car" Type="Self.staff_car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="staffid" />
+      </Principal>
+      <Dependent Role="staff_car">
+        <PropertyRef Name="staffid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taradod_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="0..1" />
+    <End Role="taradod" Type="Self.taradod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="staffid" />
+      </Principal>
+      <Dependent Role="taradod">
+        <PropertyRef Name="staffid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryLogin_User">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="1" />
+    <End Role="HistoryLogin" Type="Self.HistoryLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="Userid" />
+      </Principal>
+      <Dependent Role="HistoryLogin">
+        <PropertyRef Name="Userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hamidEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="ComboBox" EntityType="Self.ComboBox" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Person" EntityType="Self.Person" />
+    <EntitySet Name="role" EntityType="Self.role" />
+    <EntitySet Name="shift" EntityType="Self.shift" />
+    <EntitySet Name="staff" EntityType="Self.staff" />
+    <EntitySet Name="staff_car" EntityType="Self.staff_car" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="taradod" EntityType="Self.taradod" />
+    <EntitySet Name="TypeCombo" EntityType="Self.TypeCombo" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" />
+    <EntitySet Name="HistoryLogin" EntityType="Self.HistoryLogin" />
+    <AssociationSet Name="FK_Car_ComboBox2" Association="Self.FK_Car_ComboBox2">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_ComboBox3" Association="Self.FK_Car_ComboBox3">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_staff" Association="Self.FK_Car_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Car" Association="Self.FK_Customer_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_car_Car" Association="Self.FK_staff_car_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="staff_car" EntitySet="staff_car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_Car" Association="Self.FK_taradod_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_azSouey_Combo_R" Association="Self.FK_azSouey_Combo_R">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_azSouey_Combo_RVisitWithRade_combo_R" Association="Self.FK_azSouey_Combo_RVisitWithRade_combo_R">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComboBox_codTaradod_combo" Association="Self.FK_ComboBox_codTaradod_combo">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComboBox_TypeCombo" Association="Self.FK_ComboBox_TypeCombo">
+      <End Role="TypeCombo" EntitySet="TypeCombo" />
+      <End Role="ComboBox" EntitySet="ComboBox" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComboBox_vazeiat_taradod_combo" Association="Self.FK_ComboBox_vazeiat_taradod_combo">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HamahangKonnande_Combo_R" Association="Self.FK_HamahangKonnande_Combo_R">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_ComboBox" Association="Self.FK_staff_ComboBox">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_ComboBox1" Association="Self.FK_staff_ComboBox1">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_ComboBox2" Association="Self.FK_staff_ComboBox2">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_ComboBox3" Association="Self.FK_staff_ComboBox3">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_ComboBox" Association="Self.FK_taradod_ComboBox">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_ComboBox1" Association="Self.FK_taradod_ComboBox1">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_ComboBox2" Association="Self.FK_taradod_ComboBox2">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_ComboBox3" Association="Self.FK_taradod_ComboBox3">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitWithStaf_Combo_r" Association="Self.FK_VisitWithStaf_Combo_r">
+      <End Role="ComboBox" EntitySet="ComboBox" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Person" Association="Self.FK_Customer_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_Customer" Association="Self.FK_taradod_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_Person" Association="Self.FK_staff_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_role" Association="Self.FK_User_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_shift" Association="Self.FK_staff_shift">
+      <End Role="shift" EntitySet="shift" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_shift" Association="Self.FK_taradod_shift">
+      <End Role="shift" EntitySet="shift" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_staff_car_staff" Association="Self.FK_staff_car_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="staff_car" EntitySet="staff_car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taradod_staff" Association="Self.FK_taradod_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="taradod" EntitySet="taradod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryLogin_User" Association="Self.FK_HistoryLogin_User">
+      <End Role="UserLogin" EntitySet="UserLogin" />
+      <End Role="HistoryLogin" EntitySet="HistoryLogin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

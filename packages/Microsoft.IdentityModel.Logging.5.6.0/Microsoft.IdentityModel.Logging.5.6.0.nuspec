@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.IdentityModel.Logging</id>
+    <version>5.6.0</version>
+    <title>Microsoft.IdentityModel.Logging</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>https://www.nuget.org/packages/Microsoft.IdentityModel.Logging/5.6.0/license</licenseUrl>
+    <projectUrl>https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Includes Event Source based logging support.</description>
+    <summary />
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>.NET Windows Authentication Identity Logging</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.5.1" />
+      <group targetFramework=".NETFramework4.6.1" />
+      <group targetFramework="Unsupported0.0">
+        <dependency id="NETStandard.Library" version="2.0.3" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5, .NETFramework4.5.1, .NETFramework4.6.1" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

@@ -1,0 +1,120 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url("/images/pic/peacockPattern.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/*body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}*/
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*-----------------------customize---------------------------*/
+@font-face {
+    font-family: "Yekan";
+    font-size: large;
+    src: url( "/fonts/W_YEKAN_0.TTF" );
+    src: local( "?" ), url( "../fonts/W_YEKAN_0.TTF" )format( "truetype" );
+}
+
+* {
+    font-family: Yekan;
+}
+
+th {
+    background-color: #b4b1b1;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+thead {
+    background-color: #dedede;
+}
+
+tr:nth-child(even) {
+    background: #fff9f9;
+}
+
+tr:nth-child(odd) {
+    background: #FFFFFF;
+}
+
+.glyphicon-asterisk {
+    color: red;
+}
+
+.Grid-panel {
+    overflow-x: scroll;
+}
+
+ 

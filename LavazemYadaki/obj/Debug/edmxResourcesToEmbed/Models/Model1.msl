@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testBankModelStoreContainer" CdmEntityContainer="LavazemYadakiEntities">
+    <EntitySetMapping Name="Anbar">
+      <EntityTypeMapping TypeName="LavazemYadakiModel.Anbar">
+        <MappingFragment StoreEntitySet="Anbar">
+          <ScalarProperty Name="TitleAnbar" ColumnName="TitleAnbar" />
+          <ScalarProperty Name="AnbarId" ColumnName="AnbarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactorAnbar">
+      <EntityTypeMapping TypeName="LavazemYadakiModel.FactorAnbar">
+        <MappingFragment StoreEntitySet="FactorAnbar">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Tarikh" ColumnName="Tarikh" />
+          <ScalarProperty Name="Bedehkar" ColumnName="Bedehkar" />
+          <ScalarProperty Name="Bestankar" ColumnName="Bestankar" />
+          <ScalarProperty Name="KalaId" ColumnName="KalaId" />
+          <ScalarProperty Name="FactorAnbarId" ColumnName="FactorAnbarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactorForoosh">
+      <EntityTypeMapping TypeName="LavazemYadakiModel.FactorForoosh">
+        <MappingFragment StoreEntitySet="FactorForoosh">
+          <ScalarProperty Name="Fi" ColumnName="Fi" />
+          <ScalarProperty Name="CountKala" ColumnName="CountKala" />
+          <ScalarProperty Name="KalaId" ColumnName="KalaId" />
+          <ScalarProperty Name="FactorForooshId" ColumnName="FactorForooshId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kala">
+      <EntityTypeMapping TypeName="LavazemYadakiModel.Kala">
+        <MappingFragment StoreEntitySet="Kala">
+          <ScalarProperty Name="AnbarId" ColumnName="AnbarId" />
+          <ScalarProperty Name="OrderPoint" ColumnName="OrderPoint" />
+          <ScalarProperty Name="CodeKala" ColumnName="CodeKala" />
+          <ScalarProperty Name="TitleKala" ColumnName="TitleKala" />
+          <ScalarProperty Name="KalaId" ColumnName="KalaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="LavazemYadakiModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

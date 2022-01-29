@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Anbar">
+    <Key>
+      <PropertyRef Name="AnbarId" />
+    </Key>
+    <Property Name="AnbarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TitleAnbar" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorAnbar">
+    <Key>
+      <PropertyRef Name="FactorAnbarId" />
+    </Key>
+    <Property Name="FactorAnbarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KalaId" Type="int" Nullable="false" />
+    <Property Name="Bestankar" Type="int" />
+    <Property Name="Bedehkar" Type="int" />
+    <Property Name="Tarikh" Type="datetime" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorForoosh">
+    <Key>
+      <PropertyRef Name="FactorForooshId" />
+    </Key>
+    <Property Name="FactorForooshId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KalaId" Type="int" Nullable="false" />
+    <Property Name="CountKala" Type="int" Nullable="false" />
+    <Property Name="Fi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kala">
+    <Key>
+      <PropertyRef Name="KalaId" />
+    </Key>
+    <Property Name="KalaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TitleKala" Type="nvarchar(max)" />
+    <Property Name="CodeKala" Type="nvarchar(max)" />
+    <Property Name="OrderPoint" Type="int" />
+    <Property Name="AnbarId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Family" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_FactorAnbar_Kala">
+    <End Role="Kala" Type="Self.Kala" Multiplicity="1" />
+    <End Role="FactorAnbar" Type="Self.FactorAnbar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kala">
+        <PropertyRef Name="KalaId" />
+      </Principal>
+      <Dependent Role="FactorAnbar">
+        <PropertyRef Name="KalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorAnbar_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="FactorAnbar" Type="Self.FactorAnbar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="FactorAnbar">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorForoosh_Kala">
+    <End Role="Kala" Type="Self.Kala" Multiplicity="1" />
+    <End Role="FactorForoosh" Type="Self.FactorForoosh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kala">
+        <PropertyRef Name="KalaId" />
+      </Principal>
+      <Dependent Role="FactorForoosh">
+        <PropertyRef Name="KalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kala_Anbar">
+    <End Role="Anbar" Type="Self.Anbar" Multiplicity="1" />
+    <End Role="Kala" Type="Self.Kala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anbar">
+        <PropertyRef Name="AnbarId" />
+      </Principal>
+      <Dependent Role="Kala">
+        <PropertyRef Name="AnbarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="testBankModelStoreContainer">
+    <EntitySet Name="Anbar" EntityType="Self.Anbar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorAnbar" EntityType="Self.FactorAnbar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorForoosh" EntityType="Self.FactorForoosh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kala" EntityType="Self.Kala" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FactorAnbar_Kala" Association="Self.FK_FactorAnbar_Kala">
+      <End Role="Kala" EntitySet="Kala" />
+      <End Role="FactorAnbar" EntitySet="FactorAnbar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorAnbar_Person" Association="Self.FK_FactorAnbar_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="FactorAnbar" EntitySet="FactorAnbar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorForoosh_Kala" Association="Self.FK_FactorForoosh_Kala">
+      <End Role="Kala" EntitySet="Kala" />
+      <End Role="FactorForoosh" EntitySet="FactorForoosh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kala_Anbar" Association="Self.FK_Kala_Anbar">
+      <End Role="Anbar" EntitySet="Anbar" />
+      <End Role="Kala" EntitySet="Kala" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
